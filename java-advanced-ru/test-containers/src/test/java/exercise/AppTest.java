@@ -100,7 +100,7 @@ public class AppTest {
     @Test
     void testGetPerson() throws Exception {
         MockHttpServletResponse response = mockMvc
-                .perform(get("/people/1"))
+                .perform(get("/people/2"))
                 .andReturn()
                 .getResponse();
 
@@ -113,7 +113,7 @@ public class AppTest {
     void testUpdatePerson() throws Exception {
         MockHttpServletResponse responsePost = mockMvc
                 .perform(
-                        patch("/people/2")
+                        patch("/people/3")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{\"firstName\": \"Ivan\", \"lastName\": \"Ivanov\"}")
                 )
@@ -123,7 +123,7 @@ public class AppTest {
         assertThat(responsePost.getStatus()).isEqualTo(200);
 
         MockHttpServletResponse response = mockMvc
-                .perform(get("/people/2"))
+                .perform(get("/people/3"))
                 .andReturn()
                 .getResponse();
 
@@ -137,7 +137,7 @@ public class AppTest {
     void testDeletePerson() throws Exception {
         MockHttpServletResponse responsePost = mockMvc
                 .perform(
-                        delete("/people/3")
+                        delete("/people/4")
                 )
                 .andReturn()
                 .getResponse();
